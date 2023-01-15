@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/hys")
-@CrossOrigin(origins = "https://frontendportfoliomfc.web.app")
+@CrossOrigin(origins = "https://frontendportfoliomfc.web.app/home")
 public class Chys {
     @Autowired
     Shys shys;

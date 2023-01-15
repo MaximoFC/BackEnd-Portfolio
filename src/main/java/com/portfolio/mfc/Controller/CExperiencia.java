@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/experiencia")
-@CrossOrigin(origins="https://frontendportfoliomfc.web.app")
+@CrossOrigin(origins="https://frontendportfoliomfc.web.app/home")
 public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
