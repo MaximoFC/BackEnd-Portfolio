@@ -19,7 +19,7 @@ public class MfcApplication {
         public CorsFilter corsFilter(){
             CorsConfiguration corsConfiguration = new CorsConfiguration();         
             corsConfiguration.setAllowCredentials(true);         
-            corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200/", "aca va tu url de firebase"));         
+            corsConfiguration.setAllowedOrigins(Arrays.asList("https://frontendportfoliomfc-12dd7.web.app"));         
             corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",                 
                     "Accept", "Authorization", "Origin, Accept", "X-Requested-With",                 
                     "Access-Control-Request-Method", "Access-Control-Request-Headers"));         
