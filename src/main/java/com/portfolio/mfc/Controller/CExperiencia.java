@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/experiencia")
-@CrossOrigin(origins="https://frontendportfoliomfc-12dd7.web.app")
+@CrossOrigin(origins="*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
