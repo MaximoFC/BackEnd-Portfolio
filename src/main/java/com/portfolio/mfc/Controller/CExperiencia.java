@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins="*")
+@CrossOrigin(origins="**")
 @RestController
 @RequestMapping("/experiencia")
 public class CExperiencia {
@@ -26,14 +26,12 @@ public class CExperiencia {
     SExperiencia sExperiencia;
     
     @GetMapping("/lista")
-    @CrossOrigin(origins="*")
     public ResponseEntity<List<Experiencia>> list(){
         List<Experiencia> list = sExperiencia.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
     @GetMapping("/detail/{id}")
-    @CrossOrigin(origins="*")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
         if(!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -42,7 +40,6 @@ public class CExperiencia {
     }
     
     @PostMapping("/create")
-    @CrossOrigin(origins="*")
     public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoexperiencia){
         if(StringUtils.isBlank(dtoexperiencia.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -55,7 +52,6 @@ public class CExperiencia {
     }
     
     @PutMapping("/update/{id}")
-    @CrossOrigin(origins="*")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperiencia dtoexperiencia){
         if(!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
@@ -74,7 +70,6 @@ public class CExperiencia {
     }
     
     @DeleteMapping("/delete/{id}")
-    @CrossOrigin(origins="*")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);

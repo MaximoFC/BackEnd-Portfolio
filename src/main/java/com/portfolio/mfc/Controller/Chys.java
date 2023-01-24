@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins="*")
+@CrossOrigin(origins="**")
 @RestController
 @RequestMapping("/hys")
 public class Chys {
@@ -25,14 +25,12 @@ public class Chys {
     Shys shys;
     
     @GetMapping("/lista")
-    @CrossOrigin(origins="*")
     public ResponseEntity<List<hys>> list(){
         List<hys> list = shys.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
     @GetMapping("/detail/{id}")
-    @CrossOrigin(origins="*")
     public ResponseEntity<hys> getById(@PathVariable("id") int id){
         if(!shys.existsById(id))
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -41,7 +39,6 @@ public class Chys {
     }
     
     @PostMapping("/create")
-    @CrossOrigin(origins="*")
     public ResponseEntity<?> create(@RequestBody dtohys dtoHys){
         if(StringUtils.isBlank(dtoHys.getNombre()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -54,7 +51,6 @@ public class Chys {
     }
     
     @PutMapping("/update/{id}")
-    @CrossOrigin(origins="*")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtohys dtoHys){
         if(!shys.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
