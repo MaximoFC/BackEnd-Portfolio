@@ -24,12 +24,14 @@ public class Chys {
     @Autowired
     Shys shys;
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     @GetMapping("/lista")
     public ResponseEntity<List<hys>> list(){
         List<hys> list = shys.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     @GetMapping("/detail/{id}")
     public ResponseEntity<hys> getById(@PathVariable("id") int id){
         if(!shys.existsById(id))
@@ -38,6 +40,7 @@ public class Chys {
         return new ResponseEntity(Hys, HttpStatus.OK);
     }
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtohys dtoHys){
         if(StringUtils.isBlank(dtoHys.getNombre()))
@@ -50,6 +53,7 @@ public class Chys {
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
     }
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtohys dtoHys){
         if(!shys.existsById(id))
@@ -67,6 +71,7 @@ public class Chys {
         return new ResponseEntity(new Mensaje("Skill actualizada"), HttpStatus.OK);
     }
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!shys.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.NOT_FOUND);

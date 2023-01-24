@@ -25,12 +25,14 @@ public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     @GetMapping("/lista")
     public ResponseEntity<List<Experiencia>> list(){
         List<Experiencia> list = sExperiencia.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
         if(!sExperiencia.existsById(id))
@@ -39,6 +41,7 @@ public class CExperiencia {
         return new ResponseEntity(experiencia, HttpStatus.OK);
     }
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoexperiencia){
         if(StringUtils.isBlank(dtoexperiencia.getNombreE()))
@@ -51,6 +54,7 @@ public class CExperiencia {
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
     }
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperiencia dtoexperiencia){
         if(!sExperiencia.existsById(id))
@@ -69,6 +73,7 @@ public class CExperiencia {
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
     }
     
+    @CrossOrigin(origins ="https://frontendportfoliomfc-12dd7.web.app")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!sExperiencia.existsById(id))
